@@ -10,8 +10,8 @@ def get_ip_address(ifname):
         except ValueError:
             return None
     elif platform.system() == 'Windows':
-        from win_ifname import win_from_name_get_id
-        if_id = win_from_name_get_id(ifname)
+        from win_ifname import get_connection_name_from_guid
+        if_id = get_connection_name_from_guid(ifname)
         if not if_id:
             return
         else:
