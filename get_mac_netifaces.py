@@ -11,8 +11,8 @@ def get_mac_address(ifname):
         except ValueError:
             return None
     elif platform.system() == 'Windows':
-        from win_ifname import win_from_name_get_id
-        if_id  = win_from_name_get_id(ifname)
+        from win_ifname import get_connection_name_from_guid
+        if_id = get_connection_name_from_guid(ifname)
         if not if_id:
             return None
         else:
@@ -26,4 +26,4 @@ if __name__ == '__main__':
     if platform.system() == 'Linux':
         print(get_mac_address('ens33'))
     elif platform.system() == 'Windows':
-        print(get_mac_address('Net1'))
+        print(get_mac_address('以太网 2'))
